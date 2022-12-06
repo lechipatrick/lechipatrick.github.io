@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Thoughts on experimentation systems - part I - why is it so hard?
-
+---    
 I've worked on and interacted with experimentation systems at various tech companies (Udemy, Uber, Shipt). These are some reflections I have why it's so hard to have an effective experimentation system.
 
 ### Built by engineers, for statisticians
