@@ -21,7 +21,6 @@ A statistician should work closely with the engineers on the design and behavior
 #### Make statistical analyses transparent and accessible
 One way to do this is to maintain a python package that holds all statistical analysis code. This package should be made pip-installable so any data scientist can use it, as well as packaged into a container image and hooked up to the experimentation platform. This way, it's clear what's being done, and users would have no issue replicating the results. The building of such a statistical package should be accompanied by clean and detailed documentation of the methodology, how it works, why it works, and when it works. Unit tests should be provided to confirm that the procedures indeed have the expected statistical properties (e.g., false positive rate, power, etc.).
 
-#### Analyzed by statisticians
 
 ### References
 Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing - Book by Diane Tang, Ron Kohavi, and Ya Xu
