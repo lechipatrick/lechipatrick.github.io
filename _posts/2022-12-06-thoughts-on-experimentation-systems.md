@@ -4,7 +4,7 @@ title: Thoughts on experimentation systems - part I - why is it so hard?
 ---    
 I've worked on and interacted with experimentation systems at various tech companies (Udemy, Uber, Shipt). These are some reflections I have why it's so hard to have an effective experimentation system.
 
-#### Built by engineers, for statisticians
+### Built by engineers, for statisticians
 
 One reason that the R language is popular among statisticians and data scientists is that it was built *by statisticians for statisticians*. Experimentation systems are rarely, if ever, built or designed by statisticians. Yet their main target users are (or should be) statisticians. This disconnect is what I think underlies many of the difficulties in building a satisfactory experimentation system. Often, the intended target users are assumed to be product managers or engineers, who aren't aware of the fine but important details and assumptions in statistical inference. Such a system can have crippling issues. Below are just some examples.
 
@@ -13,7 +13,7 @@ One reason that the R language is popular among statisticians and data scientist
 
 
 
-Here are some ways to avoid such issues:
+### Here are some ways to avoid such issues:
 
 #### Involve a statistician every step of the way
 A statistician should work closely with the engineers on the design and behavior of the system. This would ensure that crucial assumptions are satisfied for valid statistical analyses.
