@@ -15,8 +15,11 @@ One reason that the R language is popular among statisticians and data scientist
 
 Here are some ways to avoid such issues:
 
-#### Designed by statisticians, for statisticians, implemented by engineers
-The statistician should work closely with the engineer on the design 
+#### Involve a statistician every step of the way
+A statistician should work closely with the engineers on the design and behavior of the system. This would ensure that crucial assumptions are satisfied for valid statistical analyses.
+
+#### Make statistical analyses transparent and accessible
+One way to do this is to maintain a python package that holds all statistical analysis code. This package should be made pip-installable so any data scientist can use it, as well as packaged into a container image and hooked up to the experimentation platform. This way, it's clear what's being done, and users would have no issue replicating the results. The building of such a statistical package should be accompanied by clean and detailed documentation of the methodology, how it works, why it works, and when it works. Unit tests should be provided to confirm that the procedures indeed have the expected statistical properties (e.g., false positive rate, power, etc.).
 
 #### Analyzed by statisticians
 
