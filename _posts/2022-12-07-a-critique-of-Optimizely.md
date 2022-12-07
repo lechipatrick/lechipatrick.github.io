@@ -70,7 +70,7 @@ For a long time I was confused whether Optimizely's methods are frequentist or B
 ![bayesian_1](https://lechipatrick.github.io/bayesian_1.png)
 ![bayesian_2](https://lechipatrick.github.io/bayesian_2.png)
 
-Optimizely calibrates uses a normal prior $\pi(\theta) ~ N(0, \tau)$ and calibrates the parameter $\tau$ "as the result of extensive analysis of historical experiments run on Optimizely’s platform. It should be noted that without this personalization, sequential testing did not give results quickly enough to be a viable for use in an industry platform. This is something we intend to keep refining going forward."
+Optimizely calibrates uses a normal prior $\pi(\theta) \sim N(0, \tau)$ and calibrates the parameter $\tau$ "as the result of extensive analysis of historical experiments run on Optimizely’s platform. It should be noted that without this personalization, sequential testing did not give results quickly enough to be a viable for use in an industry platform. This is something we intend to keep refining going forward."
 
 The fusion of Bayesian elements confuses me for many reasons.
 * Typically a prior is used to capture knowledge about the parameter. This knowledge tends to be domain specific. But Optimizely seems to be using all experiments on its platform to calibrate this prior. It's practically lumping priors on auto part defects with grocery shopper purchase amounts. This pooling makes little sense to me, and in essence loses the benefits of Bayesian inference - the ability to augment the data with domain specific expert knowledge.
