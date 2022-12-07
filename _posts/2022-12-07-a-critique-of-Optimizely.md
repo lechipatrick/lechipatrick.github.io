@@ -46,7 +46,8 @@ Optimizely uses an inference method that relies on a likelihood ratio test. In a
 #### It is Bayesian inference, without the main benefits of Bayesian inference
 For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. But it's clear to me now that it is Bayesian in disguise. 
 
-![jarjar](bayesian_1.png)
+![bayesian_1](bayesian_1.png)
+![bayesian_2](bayesian_2.png)
 
 ### References
 
