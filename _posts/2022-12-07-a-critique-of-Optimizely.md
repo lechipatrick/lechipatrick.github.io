@@ -64,6 +64,16 @@ Now, there is some information about Optimizely's methods that the data scientis
 #### Summary
 Optimizely uses an inference method that relies on a likelihood ratio test. In a nutshell, it calculates the ratio of (a) the likelihood that the treatment effect $\theta$  is some non-zero value $\tilde \theta$ to (b) the likelihood that the treatment effect is zero. However, ex-ante it is not known what the treatment effect might be, so Optimizely calculates the average likelihood ratio over possible values over a distribution $\pi(\theta)$. It then compares this average likelihood ratio to some threshold that is calibrated to give the right type I error (size, false positive rate), and as much power as possible. 
 
+#### Unclear hypotheses being tested in an unclear framework
+It is not crystal clear what hypotheses are being tested. My best guess is that this procedure tests the alternative hypothesis $H_a$ that $\theta\neq 0$ against the null hypothesis $H_0$ that $\theta = 0$. However, in the process, a prior of $N(0, \tau)$ is being used. Is this prior part of the null hypothesis, or the alternative hypothesis? Or both? 
+
+In a traditional framework, there is a clear set up
+* Some distributional assumption is made on the data generating process, given the parameter
+* Under the null, a test statistic would have certain distribution 
+* Reject the null if the test statistic turns out to be very unlikely given its distribution under the null
+
+Overall, the null hypothesis serves as the anchor for claims about what a test statistic should look like. By having both the null hypothesis and a prior distribution, it is very confusing what exactly is being tested, and based on what assupmtions.
+
 #### It is partially Bayesian inference, without the main benefits of Bayesian inference
 For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. I think it's fair to say that it's a mixture of both. Below are instances in the papers where a prior is used in the computation. 
 
