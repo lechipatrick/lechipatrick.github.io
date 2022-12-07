@@ -72,7 +72,7 @@ In a traditional framework, there is a clear set up
 * Under the null, a test statistic would have certain distribution 
 * Reject the null if the test statistic turns out to be very unlikely given its distribution under the null
 
-Overall, the null hypothesis serves as the anchor for claims about what a test statistic should look like. By having both the null hypothesis and a prior distribution, it is very confusing what exactly is being tested, and based on what assupmtions.
+Overall, the null hypothesis serves as the anchor for claims about what a test statistic should look like. By having both the null hypothesis and a prior distribution, it is very confusing what exactly is being tested, and based on what assumptions.
 
 #### It is partially Bayesian inference, without the main benefits of Bayesian inference
 For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. I think it's fair to say that it's a mixture of both. Below are instances in the papers where a prior is used in the computation. 
