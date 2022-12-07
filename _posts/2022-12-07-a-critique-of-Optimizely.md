@@ -63,10 +63,12 @@ Now, there is some information about Optimizely's methods that the data scientis
 Optimizely uses an inference method that relies on a likelihood ratio test. In a nutshell, it calculates the ratio of (a) the likelihood that the treatment effect $\theta$  is some non-zero value $\tilde \theta$ to (b) the likelihood that the treatment effect is zero. However, ex-ante it is not known what the treatment effect might be, so Optimizely calculates the average likelihood ratio over possible values over a distribution $\pi(\theta)$. It then compares this average likelihood ratio to some threshold that is calibrated to give the right type I error (size, false positive rate), and as much power as possible. 
 
 #### It is Bayesian inference, without the main benefits of Bayesian inference
-For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. But it's clear to me now that it is Bayesian in disguise. 
+For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. But it's clear to me now that it is Bayesian in disguise. Below are two snapshots from the white papers:
 
 ![bayesian_1](https://lechipatrick.github.io/bayesian_1.png)
 ![bayesian_2](https://lechipatrick.github.io/bayesian_2.png)
+
+Another way to view Optimizely's procedure that is more standard Bayesian would be: (1) assume a prior distribution $\pi(\theta)$ on the treatment effect, (2) use the experiment data to update the prior to obtain a posterior distribution $\tilde \pi(\theta)$.
 
 ### References
 
