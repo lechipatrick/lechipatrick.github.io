@@ -7,4 +7,4 @@ title: A critique of Optimizely
 
 References
 
-[pdf](https://lechipatrick.github.io/Whitepaper_The New Optimizely Stats Engine.pdf)
+[pdf](https://lechipatrick.github.io/optimizely_stats_engine.pdf)
