@@ -70,7 +70,13 @@ For a long time I was confused whether Optimizely's methods are frequentist or B
 ![bayesian_1](https://lechipatrick.github.io/bayesian_1.png)
 ![bayesian_2](https://lechipatrick.github.io/bayesian_2.png)
 
-Optimizely calibrates uses a normal prior $\pi(\theta) ~ N(0, \tau)$ and calibrates the parameter $\tau$ "as the result of extensive analysis of historical experiments run on Optimizely’s platform. It should be noted that without this personalization, sequential testing did not give results quickly enough to be a viable for use in an industry platform."
+Optimizely calibrates uses a normal prior $\pi(\theta) ~ N(0, \tau)$ and calibrates the parameter $\tau$ "as the result of extensive analysis of historical experiments run on Optimizely’s platform. It should be noted that without this personalization, sequential testing did not give results quickly enough to be a viable for use in an industry platform. This is something we intend to keep refining going forward."
+
+The fusion of Bayesian elements confuses me for many reasons.
+* Typically a prior is used to capture knowledge about the parameter. This knowledge tends to be domain specific. But Optimizely seems to be using all experiments on its platform to calibrate this prior. It's practically lumping priors on auto part defects with grocery shopper purchase amounts. This pooling makes little sense to me, and in essence loses the benefits of Bayesian inference - the ability to augment the data with domain specific expert knowledge.
+* If one is willing to specify a prior, then it would be way simpler to adopt a full Bayesian approach: (1) specify a prior, (2) update the prior with data to obtain a posterior (3) make decisions based on the posterior distribution (e.g., stop when the posterior distribution is sufficiently far from zero). From a Bayesian perspective, peeking doesn't create any problem - the posterior is always valid.
+* There is inherent subjectivity in the choice of the prior, $\tau$. Optimizely itself states that it's going to "refine" this. In other words, the statistical significance of an experiment results might change depending on $\tau$. This is an inconsistency that experimenters would not welcome. 
+
 
 ### References
 
