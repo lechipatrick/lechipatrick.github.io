@@ -58,12 +58,15 @@ A complaint I hear again and again about Optimizely's experiment results is that
 
 This above issue is more serious that it sounds. A proponent of Optimizely might say: "Hey - these methods have been developed by experts in the field, statisticians with Ph.D.s, at prestigious universities." But that would have little sway in a product review meeting where the in-house data scientist isn't able to explain the discrepancies, or why some metrics move in this direction whereas others move in the opposite direction. Like I write above, statistical significance isn't everything. Understanding the experiment results, being able to reason about them and therefore trust them, is orders of magnitude more important. 
 
-### Statistical flaws
+### Statistical flaws and limitations
 Now, there is some information about Optimizely's methods that the data scientist can attempt to piece together to try to reproduce. I have included such information I could find in the references section below. After studying these white papers several times over, and I shamelessly admit that I still haven't quite internalized their contributions (I even watched an hour-long YouTube presentation by one of the authors), let me provide a summary of its methods (as far as I can glean from these papers) and some criticisms.
 
 #### Summary of procedure
 Optimizely uses an inference method that relies on a likelihood ratio test. In a nutshell, it calculates the ratio of (a) the likelihood that the treatment effect $\theta$  is some non-zero value $\tilde \theta$ to (b) the likelihood that the treatment effect is zero. However, ex-ante it is not known what the treatment effect might be, so Optimizely calculates the average likelihood ratio over possible values over a distribution $\pi(\theta)$. It then compares this average likelihood ratio to some threshold that is calibrated to give the right type I error (size, false positive rate), and as much power as possible. 
-
+    
+#### Limited power
+The authors behind Optimizely's method write that if you stick to a sample size in advice, then finite-horizon statistics is optimal: "the probability of detecting any true effect with the predetermined data set is maximized." A corollary of this is that the continuous monitoring/sequential testing approach can't give more power than finite-horizon approach. We can unpack this by considering 3 cases. Case 1: the treatment effect is so large that it will be detected by either method. Case 2: the treatment effect is so small and negligible that neither method detects it. Case 3: the treament effect is small, detectable by finite horizon statistics but not by sequential testing. From an experimenter's perspective, finite horizon statistics would seem more favorable. 
+    
 #### Unclear hypotheses being tested in an unclear framework
 It is not crystal clear what hypotheses are being tested. My best guess is that this procedure tests the alternative hypothesis $H_a$ that $\theta\neq 0$ against the null hypothesis $H_0$ that $\theta = 0$. However, in the process, a prior of $N(0, \tau)$ is being used. Is this prior part of the null hypothesis, or the alternative hypothesis? Or both? 
 
