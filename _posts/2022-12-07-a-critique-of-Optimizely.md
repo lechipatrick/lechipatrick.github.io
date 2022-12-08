@@ -24,7 +24,7 @@ MathJax.Hub.Queue(function() {
 
 
 
-[Optimizely](https://www.optimizely.com/) is an experimetation platform that offers 2 main services: configuring experiments (traffic splitting, treatment group assignment) and statistical analyses of the configured experiments. Here I outline several limitations, mainly with the analysis part, with using Optimizely.
+[Optimizely](https://www.optimizely.com/) is an experimetation platform that offers 2 main services: configuring experiments (traffic splitting, treatment group assignment) and statistical analyses of the configured experiments. Here I outline several limitations, mainly with the analysis part, with using Optimizely. I admit freely here that I don't consider myself to have fully internalized Optimizely's statistical methods, so a few of the things you see below might simply be my misunderstanding.
 
 ## Motivations behind Optimizely's statistical methods
 Optimizely uses a rather complicated statistical inference process that supposedly allows for continuous monitoring, efficient detection of any treatment effect, while guaranteeing that all inferences made in the process are statistically valid. Several main rationales are given for using such a procedure:
@@ -61,7 +61,7 @@ This above issue is more serious that it sounds. A proponent of Optimizely might
 ### Statistical flaws
 Now, there is some information about Optimizely's methods that the data scientist can attempt to piece together to try to reproduce. I have included such information I could find in the references section below. After studying these white papers several times over, and I shamelessly admit that I still haven't quite internalized their contributions (I even watched an hour-long YouTube presentation by one of the authors), let me provide a summary of its methods (as far as I can glean from these papers) and some criticisms.
 
-#### Summary
+#### Summary of procedure
 Optimizely uses an inference method that relies on a likelihood ratio test. In a nutshell, it calculates the ratio of (a) the likelihood that the treatment effect $\theta$  is some non-zero value $\tilde \theta$ to (b) the likelihood that the treatment effect is zero. However, ex-ante it is not known what the treatment effect might be, so Optimizely calculates the average likelihood ratio over possible values over a distribution $\pi(\theta)$. It then compares this average likelihood ratio to some threshold that is calibrated to give the right type I error (size, false positive rate), and as much power as possible. 
 
 #### Unclear hypotheses being tested in an unclear framework
@@ -73,6 +73,8 @@ In a traditional framework, there is a clear set up
 * Reject the null if the test statistic turns out to be very unlikely given its distribution under the null
 
 Overall, the null hypothesis serves as the anchor for claims about what a test statistic should look like. By having both the null hypothesis and a prior distribution, it is very confusing what exactly is being tested, and based on what assumptions.
+
+Edit: perhaps Optimizely is testing the alternative of $\theta \sim N(0, \tau)$ against the null of $\theta = 0$. If so, it's a strange comparison - a specific continuous random distribution against a single value with probability mass 1. It's like meshing Bayesian with frequentist in an obscure way.
 
 #### It is partially Bayesian inference, without the main benefits of Bayesian inference
 For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. I think it's fair to say that it's a mixture of both. Below are instances in the papers where a prior is used in the computation. 
@@ -87,7 +89,12 @@ The fusion of Bayesian elements confuses me for many reasons.
 * If one is willing to specify a prior, then it would be way simpler to adopt a full Bayesian approach: (1) specify a prior, (2) update the prior with data to obtain a posterior (3) make decisions based on the posterior distribution (e.g., stop when the posterior distribution is sufficiently far from zero). From a Bayesian perspective, peeking doesn't create any problem - the posterior is always valid.
 * There is inherent subjectivity in the choice of the prior, $\tau$. Optimizely itself states that it's going to "refine" this. In other words, the statistical significance of an experiment results might change depending on $\tau$. This is an inconsistency that experimenters would not welcome. 
 
+#### Technical quibbles
+A common estimation procedure in statistics is called Maximum Likelihood Estimation (MLE). Given data, it looks for the parameter value over a parameter space that maximizes the likelihood of seeing the data. Testing of a null hypothesis can be done by looking at the ratio of the likelihood at the maximizing parameter value $\hat \theta$ to the likelihood at the parameter value specified by the null (e.g., $\theta = 0$). If this ratio is large, it can be used as evidence against the null. 
 
+The intuition of this procedure is clear: given the data, it's likely that the true parameter is around the maximizing value $\hat \theta$, and if the parameter value under the null makes the data much less likely, then we should probably reject the null. 
+
+Optimizely's technique seems to be a rather simple yet odd modification of this idea. Instead of using the *maximum* likelihood, one now uses the *weighted average* likelihood over some parameter space. It's hard to make much intuition out of this. I can give it a try: there is some average likelihood of seeing the data, and if the parameter value under the null makes the data much less likely, then we should reject the null. Hmm...
 ### References
 
 [Optimizely stats engine white paper](https://lechipatrick.github.io/optimizely_stats_engine.pdf)
