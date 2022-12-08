@@ -92,7 +92,7 @@ The fusion of Bayesian elements confuses me for many reasons.
 #### Technical quibbles
 A common estimation procedure in statistics is called Maximum Likelihood Estimation (MLE). Given data, it looks for the parameter value over a parameter space that maximizes the likelihood of seeing the data. Testing of a null hypothesis can be done by looking at the ratio of the likelihood at the maximizing parameter value $\hat \theta$ to the likelihood at the parameter value specified by the null (e.g., $\theta = 0$). If this ratio is large, it can be used as evidence against the null. 
 
-The intuition of this procedure is clear: given the data, it's likely that the true parameter is around the maximizing value $\hat \theta$, and if the parameter value under the null makes the data much less likely, then we should probably reject the null. 
+The intuition of this procedure is clear: given the data, it's likely that the true parameter is around the maximizing value $\hat \theta$, and if the parameter value under the null makes the data much less likely, then we should probably reject the null. This procedure has long-established statistical foundations.
 
 Optimizely's technique seems to be a rather simple yet odd modification of this idea. Instead of using the *maximum* likelihood, one now uses the *weighted average* likelihood over some parameter space. It's hard to make much intuition out of this. I can give it a try: there is some average likelihood of seeing the data, and if the parameter value under the null makes the data much less likely, then we should reject the null. Hmm...
 ### References
