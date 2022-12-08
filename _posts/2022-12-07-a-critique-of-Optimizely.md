@@ -74,7 +74,7 @@ In a traditional framework, there is a clear set up
 
 Overall, the null hypothesis serves as the anchor for claims about what a test statistic should look like. By having both the null hypothesis and a prior distribution, it is very confusing what exactly is being tested, and based on what assumptions.
 
-Edit: perhaps Optimizely is testing the alternative of $\theta \sim N(0, \tau)$ against the null of $\theta = 0$. If so, it's a strange comparison - a specific continuous random distribution against a single value with probability mass 1. It's like meshing Bayesian with frequentist in an obscure way.
+Edit: perhaps Optimizely is testing the alternative of $\theta \sim N(0, \tau)$ against the null of $\theta = 0$. If so, it's a strange comparison - a specific continuous random distribution against a single value with probability mass 1. It's like meshing Bayesian with frequentist in an obscure way. In addition, rejecting the null lands you with the alternative that $\theta \sim N(0, \tau)$, so does that mean that the true effect can be zero? Hmm...
 
 #### It is partially Bayesian inference, without the main benefits of Bayesian inference
 For a long time I was confused whether Optimizely's methods are frequentist or Bayesian. I think it's fair to say that it's a mixture of both. Below are instances in the papers where a prior is used in the computation. 
