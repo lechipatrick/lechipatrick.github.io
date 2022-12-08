@@ -2,7 +2,10 @@
 layout: post
 title: Thoughts on experimentation systems - part I - why is it so hard?
 ---    
-I've worked on and interacted with experimentation systems at various tech companies (Udemy, Uber, Shipt). These are some reflections I have why it's so hard to have an effective experimentation system.
+I've worked on and interacted with experimentation systems at various tech companies (Udemy, Uber, Shipt). These are some reflections I have why it's so hard to have an effective, successful experimentation system.
+
+### Customers of various stripes
+<!-- your comment An experimentation system has multiple components: (a) an UI for experimenters to set up, configure and analyze their experiments, (b) a backend system that powers the UI and interacts with other systems via API/RPC calls, and (c) an analysis system to perform various types of analyses on the experiment. The experimentation system has -->
 
 ### Probabilistic correctness
 
