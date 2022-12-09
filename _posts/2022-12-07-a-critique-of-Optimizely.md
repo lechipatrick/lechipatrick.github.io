@@ -39,11 +39,16 @@ Experimenters are busy people. Regardless of whether they're engineers, product 
 ### Immediate launch of the winning variant is overrated
 Most experiments are not mission-critical, i.e., they're not  going to give a 10% lift to your KPI metrics. A majority of experiments do not show any improvement, and among those that do, the improvements tend to be modest, around the range of 0.5%~2%. While these numbers are only ballpark, they should make sense. Experiments are intended to further optimize the business - they're not meant to fundamentally change the business (there are exceptions). As such, their effects are marginal.
 
+
 So would experimenters drop everything and launch a winning feature once some positive effect is detected? No. And there are good reasons, statistics and significance aside, for not doing so.
 * Since the effects are marginal, waiting for a few more weeks is not a big deal.
 * Statistical significance isn't everything. Experimenters want to have a good estimate of the treatment effect. Leaving the experiment to run over the intended duration allows for more data to be gathered, providing more confidence around what the true effect size is.
 * Post-hoc analyses of other metrics - there is typically interest in knowing how additional metrics moved, or how certain segments of users behaved. Having more data definitely helps with these analyses. I should note that thorough analysis of important experiments can yield very important and actionable insights into user behavior, which would in turn spur development of additional improvements.
 
+### Guesswork in sample size calculation can be fine
+Experiments are a way for the business to move forward, hopefully optimally. They're not an exercise in precise science - that would be reserved for the likes of clinial trials for FDA approval where the impact of a wrong decision can be extremely costly. As such, some degree of guesswork is perfectly fine.
+
+In practice, experimenters have limited tolerance for long experiments. The most common durations used are 2 weeks, 4 weeks, 6 weeks. These lengths come from the culture of the company, the personal experience of the experimenters, business domain expert knowledge, and often also the need to move fast. The experimenter would usually aim for a specific length, say 4 weeks, and try to get as much traffic as possible by using all allowed parts of the site, areas of service, etc. At the end of 4 weeks, it's over, significant or not. There are good reasons for doing so. First, if the results are significant, then all's well and good. Second, if the results are not significant, then one can conclude that the true treatment effects are small enough for the business to be ignored. The continuous monitoring framework would allow the experimenter to extend the experiment duration - statistically that might be fine, but in terms of business impact it sounds like spending more time hoping for a very small effect.
 
 ### So what do experimenters really care about?
 * The experiment is configured correctly: traffic is being channeled as expected, giving the right ratio of control population size to treatment population size.
