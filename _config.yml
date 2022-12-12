@@ -6,11 +6,10 @@
 name: Patrick Le
 
 # Short bio or description (displayed in the header)
-description: Data scientist, statistician
+description: Full stack data scientist, statistician
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-#avatar: https://onyilam.github.io/myAvatar.png
-
+#avatar: https:
 #
 # Flags below are optional
 #
@@ -26,11 +25,11 @@ footer-links:
   linkedin: patrick-le-453b3119
   pinterest:
   rss: # just type anything here for a working RSS icon
-#  twitter: onyilam
+#  twitter: 
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
-#  medium: onyilam
+#  medium: 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
