@@ -31,12 +31,12 @@ Optimizely uses a rather complicated statistical inference process that supposed
 * Users want to monitor their experiments continuously and stop the experiment as soon as some effect is detected. This "peeking" inflates the false positive error rate when traditional statistical methods are used.
 * Designing an experiment in the traditional sense (power calculation, sample size calculation, when to look at the results, etc.) is hard and involves too much guessing.
 
-While these motivations sound great on paper, my experience with experimentation systems and experimenters/users reveal that these issues are rather minor.
+While these motivations sound great on paper (and make for a great sales pitch to non-stats savvy audiences like engineers and PMs), my experience with experimentation systems and experimenters/users reveal that these issues are rather minor.
 
-### Continuous monitoring is overrated
+### Continuous monitoring is unwarranted
 Experimenters are busy people. Regardless of whether they're engineers, product managers, or data scientists, they are most likely juggling multiple code bases, products, and projects. I've never seen anyone who launches an experiment and twiddles their thumbs while it runs, unable to do anything until the experiment is conclusive. The need to continuously monitor the experiment seems to be more imagined than real. I should note that monitoring the experiment for signs that something goes terribly wrong (usually by checking that the main KPIs do not tank) is recommended. But this doesn't require fancy statistics.
 
-### Immediate launch of the winning variant is overrated
+### Immediate launch of the winning variant is unwarranted
 Most experiments are not mission-critical, i.e., they're not  going to give a 10% lift to your KPI metrics. A majority of experiments do not show any improvement, and among those that do, the improvements tend to be modest, around the range of 0.5%~2%. While these numbers are only ballpark, they should make sense. Experiments are intended to further optimize the business - they're not meant to fundamentally change the business (there are exceptions). As such, their effects are marginal.
 
 
